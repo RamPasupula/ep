@@ -1,0 +1,93 @@
+  <div ng-include src="'/views/template.html'"></div>
+<div class="section">
+    <h4>{{headingTitle}} </h4>
+    
+    <md-content>
+    	 <md-tabs md-dynamic-height md-border-bottom>
+			
+			<md-tab label="MEMORY">
+			 <md-content class="md-padding">
+			
+			<h6 class="md-display"> MEMORY UTILIZATION </h6>
+     
+     
+	 <div class="row">
+	 <div  class="col-xs-4">
+	 <div class="table-responsive-lg" >
+    	<table class="table table-striped" style="display: inline-block;">
+    		<th>#</th>
+    		<th>Memory % </th>
+    		<th>Date</th>
+		    <tr ng-repeat="mem in memory | filter: global.search"">
+		    	<td>{{$index+1}}</td>
+		    <td>{{mem.value}}</td>
+		        <td>{{mem.rundate}}</td>
+		    </tr>
+		   </table>
+	  </div>
+		  	   
+	 </div>	   
+   
+		     <div  class="col-xs-8" id="dataviz"> </div>
+		  
+	 </div>
+		
+ </md-content> 
+ </md-tab>
+ 
+         <md-tab label="CPU"> 
+         <md-content class="md-padding">
+			<h6 class="md-display">CPU UTILIZATION</h6>
+		 <div class="row">
+	 <div  class="col-xs-4">
+	 <div class="table-responsive-lg" >
+    	<table class="table table-striped" style="display: inline-block;">
+    		<th>#</th>
+    		<th> % cpu usage </th>
+    		<th>date</th>
+		    <tr ng-repeat="cp in cpu | filter: global.search"">
+		    	<td>{{$index+1}}</td>
+		       <td>{{cp.value}}</td>
+		        <td>{{cp.rundate}}</td>
+		    </tr>
+		   </table>
+		  
+    </div>
+		  	   
+	 </div>	   
+   
+		     <div  class="col-xs-8" id="cpuviz"> </div>
+		  
+	 </div>
+			
+			</md-content> </md-tab>
+			 <md-tab label="IO">
+			  <md-content class="md-padding">
+			<h6 class="md-display">Cluster IO Utilization</h6>
+    <div class="row">
+	 <div  class="col-xs-4">
+	 <div class="table-responsive-lg" >  
+    	<table class="table table-striped" style="display: inline-block;">
+    		<th>#</th>
+    		<th> % IO usage </th>
+    		<th>date</th>
+		    <tr ng-repeat="ii in io | filter: global.search"">
+		    	<td>{{$index+1}}</td>
+		       <td>{{ii.value}}</td>
+		        <td>{{ii.rundate}}</td>
+		    </tr>
+		   </table>
+		 
+    </div>
+		  	   
+	 </div>	   
+   
+		     <div  class="col-xs-8" id="ioviz"> </div>
+		  
+	 </div>
+ </md-content> 
+ </md-tab>
+</md-tabs> </md-content>
+		</div>
+
+  

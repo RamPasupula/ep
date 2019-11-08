@@ -1,0 +1,303 @@
+
+  <div ng-include src="'/views/template.html'"></div>
+<div class="section">
+	<h5>{{headingTitle}}</h5>
+	<md-content> 
+		<md-tabs md-dynamic-height md-border-bottom>
+					<!-- 
+			       <md-tab label="Daily (Asia)"> 
+                           <md-content class="md-padding">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                      <div class="card">
+                                        <div class="card-body">
+                                          <h5 class="card-title">{{bizDate}} Biz Date</h5>
+                                             <div id="frrasiaareamap" style="width: 100%; height: 300px;"></div>                                         
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                      <div class="card">
+                                        <div class="card-body">
+                                          <h5 class="card-title">{{bizDate}} Biz Date (% of Completion By Hour)</h5>
+                                             <div id="frrasiaheatmap" style="width: 100%; height: 300px;"></div>                                         
+                                        </div>
+                                      </div>
+                                   </div>
+                   				</div>
+                           </md-content>
+                     </md-tab>			
+					-->
+			       <md-tab label="SUMMARY"> 
+                           <md-content class="md-padding">
+                           
+                              <div class="row">
+					           	  <div class="col-sm-3">
+					           	  </div>
+					           	  <div class="col-sm-3">
+					           	  </div>
+					           	  <div class="col-sm-3">
+					           	  </div>
+					           	  <div class="row justify-content-center align-self-center col-sm-1">
+					           	   Biz Date:
+					           	  </div>
+                                  <div class="col-sm-2">
+                               		 <select class="form-control" id="sel1" ng-model="selectedDate" ng-change="selectedItemChanged()" >
+						       			   <option ng-repeat="x in dataAs" value="{{x}}"  >{{x}}</option>
+							
+					           				</select>
+					           	 </div>
+					           	</div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                           				<h5>Asia</h5>                                    
+                                    </div>
+                                    <div class="col-sm-6">
+                           				<h5>Rest of the World</h5>                                    
+                                    </div>
+                                </div>
+                              
+                                  
+                                                             
+                                <div class="row">
+                                    <div class="col-sm-6">
+										<div id="frrasiaareamap" style="width: 100%; height: 300px;"></div>                                    
+                                    </div>
+                                 <div class="col-sm-6">
+										<div id="frrwesternareamap" style="width: 100%; height: 300px;"></div>                                    
+                                    </div> 
+                                </div>
+                              <div class="row">
+                                  
+										<div class="divcon " id="frrasiaheatmap"  style="min-width: 1000px; max-width: 1000px;" ></div>
+	    						
+										<div class="divcon2 " id="frrwesternheatmap" style="float: left;" ></div>
+							                                
+	                   			</div> 
+                           </md-content>
+                     </md-tab>
+			
+	 		<md-tab label="FRR (T3)">
+		 		<md-content class="md-padding">
+						<div class="row">
+				  <div class="col-sm-12">
+					<div class="card bg-light mb-3">
+  						<div class="card-header">FRR (T3)</div>
+				      	<div class="card-body">
+				        <p class="card-text">{{bizDate}} Business Date Batch Completion Status (%)</p>
+						<div id="frrdaily2t30"></div>
+				      </div>
+				    </div>
+				  </div>
+				  </div>
+				    </md-content>
+			</md-tab>
+	
+			<md-tab label="EDW (T2)"> <md-content class="md-padding">
+				<div class="row">
+				  <div class="col-sm-12">
+				    <div class="card bg-light mb-3">
+ 						<div class="card-header">EDW (T2)</div>
+				      	<div class="card-body">
+				        <p class="card-text">{{bizDate}} Business Date Batch Completion Status (%)</p>
+						<div id="frrdaily2"></div>
+				      </div>
+				    </div>
+				  </div>
+				  </div>
+				  
+				  </md-content>
+			</md-tab>
+	 		
+			
+		<md-tab label="DETAILED BATCH STATUS">
+		 		<md-content class="md-padding">
+		 		<p class="card-text">{{bizDate}} Business Date Batch Completion Status</p>
+						<div class="table-responsive-lg">
+								<table id="ttTab"  class="table table-bordered">
+							
+
+   
+    <tbody >
+        <tr>
+            <td rowspan=2>&nbsp;</td>
+          <!--   <th> Tier  </th>
+            <th colspan=2 >Status</th> -->
+         </tr>
+          <tr  class="text-center">
+            <th colspan=3 >T14 </th>
+            <th colspan=3 >T15 </th>
+             <th colspan=3 >T20 </th>
+              <th colspan=3 >T30 </th>
+          </tr>
+        <tr class="text-center">
+            <th rowspan=1>Country</th>
+            <th rowspan=1> Completed  </th>
+            <th rowspan=1>Pending</th>
+             <th rowspan=1>  Total  </th>
+            
+            <th rowspan=1>Completed  </th>
+            <th rowspan=1>Pending</th>
+             <th rowspan=1>  Total  </th>
+           
+            <th rowspan=1> Completed  </th>
+            <th rowspan=1>Pending</th>
+             <th rowspan=1>  Total  </th>
+           
+            <th rowspan=1> Completed  </th>
+            <th rowspan=1>Pending</th>
+             <th rowspan=1>  Total  </th>
+         </tr>
+    
+    </tbody>
+					<tr class="text-right"  ng-repeat="frrd in datadt1">
+         
+								            <td rowspan=1 >{{frrd.name}}</td>
+								     		<td rowspan=1>{{frrd.t14Completed}}</td>
+									  	 	 <td  rowspan=1>{{frrd.t14Pending}}</td>
+											<td  rowspan=1>{{frrd.t14Total}}</td>
+											
+								 			<td rowspan=1>{{frrd.t15Completed}}</td>
+									  	 	 <td  rowspan=1>{{frrd.t15Pending}}</td>
+											<td  rowspan=1>{{frrd.t15Total}}</td>
+											
+								     		<td rowspan=1>{{frrd.t20Completed}}</td>
+									  	 	 <td  rowspan=1>{{frrd.t20Pending}}</td>
+											<td  rowspan=1>{{frrd.t20Total}}</td>
+											
+								     		<td rowspan=1>{{frrd.t30Completed}}</td>
+									  	 	 <td  rowspan=1>{{frrd.t30Pending}}</td>
+											<td  rowspan=1>{{frrd.t30Total}}</td>
+								
+									</tr>
+									
+									     <tr  class="text-right">
+            <th colspan=1>Grand Total</th>  	<td id="completed"  rowspan=1>{{t14CF}}</td> 	<td id="pending"  rowspan=1>{{t14PF}}</td> 	<td rowspan=1>{{t14TF}}</td>
+            <td id="completed"  rowspan=1>{{t15CF}}</td> 	<td id="pending"  rowspan=1>{{t15PF}}</td> 	<td rowspan=1>{{t15TF}}</td>
+            <td id="completed"  rowspan=1>{{t20CF}}</td> 	<td id="pending"   rowspan=1>{{t20PF}}</td> 	<td rowspan=1>{{t20TF}}</td>
+            <td id="completed"  rowspan=1>{{t30CF}}</td> 	<td id="pending"  rowspan=1>{{t30PF}}</td> 	<td rowspan=1>{{t30TF}}</td>
+            </tr>
+            <tr  class="text-right">
+            <th rowspan=1> Percentage  </th><td id="completed" rowspan=1>{{t14cp}}% </td> 	<td  id="pending"  rowspan=1>{{t14pp}}% </td><td rowspan=1></td>
+            <td id="completed" rowspan=1>{{t15cp}}% </td> 	<td  id="pending"   rowspan=1>{{t15pp}}% </td><td rowspan=1></td>
+            <td id="completed" rowspan=1>{{t20cp}}% </td> 	<td  id="pending"   rowspan=1>{{t20pp}}% </td><td rowspan=1></td>
+            <td id="completed" rowspan=1>{{t30cp}}% </td> 	<td  id="pending"   rowspan=1>{{t30pp}}% </td><td rowspan=1></td>
+         </tr>
+								</table>
+								
+								<!-- <table id="ttTab2 table-bordered">
+								
+								<tbody>
+        <tr>
+            <th rowspan=2>Overall Status</th>
+              <td colspan=5 class="text-right" > Completed </td>
+            <td colspan=5 class="text-right" >{{grandcTotal}} </td>
+             <td colspan=5 class="text-right" id="completed" >{{grandcPer}} % </td>
+           
+          </tr>
+        <tr>
+              <td colspan=5 >Pending </td>
+            <td  colspan=5 class="text-right"> {{grandpTotal}} </td>
+             <td  id="pending"  colspan=5 class="text-right">{{grandpPer}} % </td>
+         </tr>
+								</table> -->
+							</div>
+						
+						
+				    </md-content>
+			</md-tab>
+			
+	
+					<!-- 
+					<div class="row">
+						<div class="col-xs-12"><h6 class="md-display">EDW (T2)</h6></div>
+						<div class="col-xs-12">&nbsp;</div>
+						<div class="col-xs-12"><h6 class="md-display">FRR (T3)</h6></div>			
+					</div>
+					<div class="row">
+						< !-- <div class="col-xs-4">
+							<div class="table-responsive-lg">
+								<table class="table table-striped" style="display: inline-block;">
+									<th>#</th>
+									<th>Country Code</th>
+									<th>Load Completed</th>
+									<th>Load Pending</th>
+									<th>Total</th>
+									<tr ng-repeat="frrd2 in data | filter: global.search">
+										<td>{{$index+1}}</td>
+										<td>{{frrd2.site_id}}</td>
+										<td>{{frrd2.completed}}</td>
+										<td>{{frrd2.pending}}</td>
+										<td>{{frrd2.total}}</td>
+									</tr>
+								</table>
+				
+							</div>
+						</div> -- >
+						<div class="col-xs-12" id="frrdaily2"></div>
+						<div class="col-xs-12">&nbsp;</div>
+						<div class="col-xs-12" id="frrdaily2t30"></div>
+					</div>
+					-->
+			
+	 		
+	 	<!-- <md-tab label="Monthly">
+		 		<md-content class="md-padding">
+						<div class="row">
+				  <div class="col-sm-6">
+				    <div class="card bg-light mb-3">
+ 						<div class="card-header">EDW (T2)</div>
+				      	<div class="card-body">
+				        <p class="card-text">Monthly Batch Completion Status (%)</p>
+						<div id="frrmonthlyt20"></div>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col-sm-6">
+					<div class="card bg-light mb-3">
+  						<div class="card-header">FRR (T3)</div>
+				      	<div class="card-body">
+				        <p class="card-text">Monthly Batch Completion Status (%)</p>
+						<div id="frrmonthlyt30"></div>
+				      </div>
+				    </div>
+				  </div>
+				  </div>
+				</md-content> 
+			</md-tab> 
+		 -->	
+		</md-tabs> 
+	</md-content>
+</div>
+<head>
+	<style>
+		
+		thead > tr > th.pvtTotalLabel, .rowTotal, .pvtGrandTotal { display: none; }
+		tbody > tr > th.pvtTotalLabel, .colTotal, .pvtGrandTotal { display: none; }
+		tbody > tr > td.pvtAxisContainer, .pvtRows, .ui-sortable { display: none; }
+	     tbody > tr > td.pvtVals { display: none; } 
+		tbody > tr > td > select.pvtRenderer { display: none; }
+
+		
+		#pending {
+ 	 background-color: yellow;
+		}
+		#completed {
+ 	 background-color: green;
+		}
+	</style>
+	
+</head>
+
+
+<script type="text/javascript">
+	var num= document.getElementById("gpt").innerHTML;
+
+	function formatNumber(num) {
+		 val x=  num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+		  document.getElementById("gpt").innerHTML = x; 
+		}
+	
+	</script>

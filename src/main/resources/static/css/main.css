@@ -1,0 +1,136 @@
+/*
+.line {
+	fill: none;
+	stroke: steelblue;
+	stroke-width: 3px;
+}
+
+
+.axis path, .axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+	stroke-width: 2px;
+}
+
+.area {
+	fill: steelblue;
+}
+
+
+.bar { fill: steelblue; }
+.bar:hover {
+    fill: #F56C4E;
+  }
+*/
+
+ div.tooltip {
+        position: absolute;
+        text-align: center;
+        padding: 11px;
+        font-size: 11px;
+        font-weight: bold;
+        background: #f99e1a;
+        border: 0px;
+        border-radius: 8px;
+    }
+    
+  
+
+
+ div.tooltip {
+        position: absolute;
+        text-align: center;
+        padding: 11px;
+        font-size: 11px;
+        font-weight: bold;
+        background: #f99e1a;
+        border: 0px;
+        border-radius: 9px;
+    }
+    
+    .tooltip p {
+        margin: 0;
+        padding: 0;
+        color: white;
+    }
+   
+
+.node {
+		cursor: pointer;
+	}
+
+	.node circle {
+	  fill: #fff;
+	  stroke: steelblue;
+	  stroke-width: 3px;
+	}
+
+	.node text {
+	  font: 12px sans-serif;
+	}
+
+	.link {
+	  fill: none;
+	  stroke: #000; 
+	  stroke-width: 1.5px;
+	}
+
+
+svg:root {
+  overflow: visible;
+}
+
+
+svg:not(:root) {
+    overflow: visible;
+}
+/*
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.legend {
+    font-size: 16px;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+  */
+  
+  
+  .table thead th {
+    vertical-align: middle;
+    border-bottom: 2px solid #dee2e6;
+   
+  
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+   
+  
+}
+  
+ svg {
+    font: 10px sans-serif;
+    shape-rendering: crispEdges;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+  }
+ 
+  path.domain {
+    stroke: none;
+  }
+ 
+  .y .tick line {
+    stroke: #ddd;
+  }  
+

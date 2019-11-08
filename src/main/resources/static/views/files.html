@@ -1,0 +1,94 @@
+  <div ng-include src="'/views/template.html'"></div>
+<div class="section" ng-controller="fileController">
+    <h4>{{headingTitle}} ({{files.count}})</h4>
+    <div class="table-responsive-lg">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col"><input ng-model="q" id="search" class="form-control" placeholder="Search"></th>
+					<th scope="col">&nbsp;</th>
+					<th scope="col" class="text-right">Records per Page</th>
+					<th scope="col">
+						<select id="pageSizeSelect" ng-model="pageSize">
+							<option ng-repeat="p in pageSizes" value="{{p.pages}}">{{p.pages}}</option>
+						</select>
+						<!--
+						<select ng-model="pageSize" id="pageSize" class="form-control">
+							<option value='50'>50</option>
+							<option value='100'>100</option>
+							<option value='50'>250</option>
+							<option value='500'>500</option>
+						</select>
+					 	-->
+					</th>
+				</tr>
+			</thead>
+		</table>
+		<!-- 
+		 <div class="row">
+             <div class="col-sm-1 align-middle">
+				<span class="align-middle">middle</span>
+   			 </div>
+   			 
+   			   <div class="col-sm-3">
+    		   <input ng-model="q" id="search" class="form-control"
+					placeholder="Filter text">
+   			  </div>
+   			  <div class="col-sm-4">
+   			  &nbsp;
+   			 </div>
+   			  <div class="col-sm-1">
+    		  <h6>Records per Page</h6>
+   			 </div>
+   			
+   			 
+   			   <div class="col-sm-3">
+    				<select ng-model="pageSize" id="pageSize" class="form-control">
+						<option value='50'>50</option>
+						<option value='100'>100</option>
+						<option value='50'>250</option>
+						<option value='500'>500</option>
+				      </select>
+   			 </div>
+  
+  </div>
+  -->
+		
+			
+	
+
+
+		<table class="table table-striped"  style="display: inline-block;">
+			<tr>
+    		<th>Source System Name</th>
+    		<th>File Name</th>
+    		<th>Description</th>
+    		<th>Hive Table Name</th>
+    		<th>Frequency</th>
+    		<th>File Type</th>
+    		<!-- <th>Control File Info</th>-->
+    		</tr>
+		    <tr ng-repeat="file in data | filter:q | startFrom:currentPage*pageSize | limitTo:pageSize">
+		    	<!-- <td>{{$index+1}}</td> -->
+		        <td>{{file.sourcecode}}</td>
+		        <td>{{file.filename}}</td>
+		        <td>{{file.description}}</td>
+		        <td>{{file.hivetablename}}</td>
+		        <td>{{file.frequency}}</td>
+		        <td>{{file.filetype}}</td>
+		        <!-- <td>{{file.CONTROLINFO}}</td> -->
+		    </tr>
+		   </table>
+    </div>
+  	<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+    </button> {{currentPage+1}}/{{numberOfPages()}}
+  	<button ng-disabled="currentPage >= getData().length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button>
+</div>
+    
+
+ 
+
+    

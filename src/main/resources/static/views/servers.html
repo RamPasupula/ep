@@ -1,0 +1,39 @@
+ <div ng-include src="'/views/template.html'"></div>
+<div class="section">
+    <h4>{{headingTitle}}</h4>
+    <div class="table-responsive-lg">
+		<table>
+			<form>
+        		<input ng-model="global.search" type="text" class="form-control" />
+    		</form>
+		</table>    
+    	<table class="table table-striped">
+    		<th>Environment</th>
+    		<th>Type</th>
+			<th>Remarks</th>
+    		<th>Hostname</th>
+    		<th>IP Address</th>
+    		<th>Memory</th>
+    		<th>CPU</th>
+    		<th>Storage</th>
+    		<th>OS</th>
+    		<th>Software Installed</th>
+    		<th>Software Version</th>
+    		<th>Special Handling</th>
+		    <tr ng-repeat="server in servers | filter: global.search"">
+		        <td>{{server.ENV}}</td>
+				<td>{{server.TYPE1}}</td>
+				<td>{{server.REMARKS}}</td>						        
+		        <td>{{server.HOSTNAME}}</td>
+		        <td>{{server.IPADDRESS}}</td>
+		        <td>{{server.MEMORY}}</td>
+		        <td>{{server.CPU}}</td>
+		        <td>{{server.STORAGE1}}</td>
+		        <td>{{server.OS}}</td>
+		        <td>{{server.SOFTWAREINSTALLED}}</td>
+		        <td>{{server.SOFTWAREVERSION}}</td>
+		        <td>{{server.SPECIALHANDLING}}</td>
+		    </tr>
+		   </table>
+    </div>
+</div>

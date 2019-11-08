@@ -1,0 +1,21 @@
+<div ng-include src="'/views/template.html'"></div>
+<div class="section">
+    <h4>{{headingTitle}} ({{systems.count}})</h4>
+    <div class="table-responsive-lg">
+		<table>
+			<form>
+        		<input ng-model="global.search" type="text" class="form-control" placeholder="Search"/>
+    		</form>
+		</table>    
+    	<table class="table table-striped">
+    		<th>#</th>
+    		<th>Source System Code</th>
+    		<th>Source System Name</th>
+		    <tr ng-repeat="system in systems | filter: global.search"">
+		    	<td>{{$index+1}}</td>
+		        <td>{{system.sourcecode}}</td>
+		        <td>{{system.sourcename}}</td>
+		    </tr>
+		   </table>
+    </div>
+</div>
