@@ -283,7 +283,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>3.1</version>
 				<configuration>
 					<fork>true</fork>
 					<mainClass>com.uob.edag.edagportal.WebAppInitializer</mainClass>
@@ -309,7 +308,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.1</version>
+				<version>3.1.0</version>
               <!--    <version>2.4</version> -->
 				<configuration>
 					<descriptorRefs>
