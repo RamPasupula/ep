@@ -235,11 +235,11 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.cloudera.impala/jdbc -->
 		<!-- https://mvnrepository.com/artifact/com.cloudera.impala/jdbc -->
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>com.cloudera.impala</groupId>
 			<artifactId>jdbc</artifactId>
 			<version>2.5.31</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
