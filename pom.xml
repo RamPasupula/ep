@@ -36,7 +36,7 @@
 		</profile>
 	</profiles>
 
-	<repositories>
+<!-- 	<repositories>
 		<repository>
 			<id>cloudera</id>
 			<url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
@@ -53,7 +53,7 @@
 			<id>Unilog-CIMM2</id>
 			<url>https://ci.cimm2.com/artifactory/libs-release-local/</url>
 		</repository>
-	</repositories>
+	</repositories> -->
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
